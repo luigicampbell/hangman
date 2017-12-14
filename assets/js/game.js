@@ -31,9 +31,6 @@ function checkedLetters(){
     var guess = event.key;
     var guessLowercase=guess.toLowerCase();
     usedLetters.push(guessLowercase);
-   if (!guessLowercase.includes(usedLetters)){
-    alert("Please use letters only!");
-  };
 
     document.getElementById("typedLetters").innerHTML = usedLetters;
     document.getElementById("chances").innerHTML = lives;
@@ -54,6 +51,9 @@ function checkedLetters(){
           letterCounter+=1;
         }
       }
+      if (!guessLowercase.includes(usedLetters)){
+       alert("Please use letters only!");
+     };
         if (letterCounter===0){
           lives-=1;
           document.getElementById("chances").innerHTML=lives;
