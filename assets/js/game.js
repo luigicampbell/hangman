@@ -2,7 +2,6 @@
 // $(document).ready(function() {
 // Variable declaration
 var wordbank = ["marduk", "gilgamesh", "enkiddu", "tiamat"];
-var acceptableChars = ["a","b","c","d","e","f","g","h","i","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var hiddenWord = [];
 var lives = 9;
 var usedLetters = [];
@@ -38,7 +37,7 @@ function checkedLetters(){
     //Loop for hiddenWord
     for (var j = 0; j<letters.length; j++){
 
-      if (guessLowercase===letters[j]){
+      if (guessLowercase === letters[j]){
         hiddenWord[j]=letters[j];
         document.getElementById("chosenWord").innerHTML = hiddenWord;
         makeWord = hiddenWord.join("");
@@ -47,20 +46,21 @@ function checkedLetters(){
       }
   }
       for (var k = 0; k < randomWord.length; k++) {
-        if (guessLowercase==hiddenWord[k]){
+        if (guessLowercase == hiddenWord[k]){
           letterCounter+=1;
         }
       }
       if (!guessLowercase.includes(usedLetters)){
-       alert("Please use letters only!");
+       alert("Already guessed this letter!");
+
      };
-        if (letterCounter===0){
+        if (letterCounter === 0){
           lives-=1;
           document.getElementById("chances").innerHTML=lives;
         }
         if (lives<1){
           document.getElementById("gameOver").innerHTML="Try Again?";
-
+          location.reload();
         }
     }
   }
