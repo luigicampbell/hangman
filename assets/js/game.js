@@ -28,7 +28,7 @@ function checkedLetters(){
   document.onkeyup = function (event){
     var makeWord;
     var guess = event.key;
-    var guessLowercase=guess.toLowerCase();
+    var guessLowercase = guess.toLowerCase();
     usedLetters.push(guessLowercase);
 
     document.getElementById("typedLetters").innerHTML = usedLetters;
@@ -50,22 +50,42 @@ function checkedLetters(){
           letterCounter+=1;
         }
       }
-      if (!guessLowercase.includes(usedLetters)){
-       alert("Already guessed this letter!");
+      if (guessLowercase = usedLetters){
+       // alert("Already guessed this letter!");
 
-     };
+     }
         if (letterCounter === 0){
           lives-=1;
           document.getElementById("chances").innerHTML=lives;
         }
-        if (lives<1){
-          document.getElementById("gameOver").innerHTML="Try Again?";
-          location.reload();
-        }
+
     }
+  }
+  //Clearing Arrays
+  function clearArr() {
+  	usedLetters=[];
+  	guessesRemaining=12;
+  	blankWord=[]
+  	userGuess;
+  	userGuessCaps;
+  	previousIterationOfWord;
+  	guessCounter=0;
+  	wordLetter;
+  	randomWord;
+  	document.getElementById("currentWord").innerHTML="";
+  	document.getElementById("dislayUsedLetters").innerHTML=usedLetters;
+
   }
 
   // 3) roundComplete() function - Here we will have all of the code that needs to be run after each guess is made.
+  function roundComplete(){
+    if (lives<1){
+      document.getElementById("gameOver");
+      function gameOver(){
+        location.reload();
+    }
+  }
+  }
   // 4) Call the startGame() function at the end to reset the game
   startGame();
   checkedLetters();
