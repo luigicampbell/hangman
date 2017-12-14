@@ -1,0 +1,31 @@
+
+/*Hangman words display*/
+body{
+  background-color: #64ffda; 
+}
+#chosenWord{
+color: #64ffda;
+text-shadow: 1px 1px black;
+font-family: 'Josefin Sans', sans-serif;
+font-size: 28px;
+clear: both;
+}
+#typedLetters{
+color: black;
+font-family: 'Josefin Sans', sans-serif;
+font-size: 28px;
+border: solid;
+margin-top: 100px;
+clear: both;
+}
+/*Container*/
+.z-depth-4{
+background-color: #eceff1;
+margin-right: 10%;
+text-align: center;
+text-shadow: 1px 1px #78909c;
+line-height: 350px;
+margin-bottom: 20px;
+float: left;
+width: 100%;
+}
