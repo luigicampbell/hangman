@@ -8,6 +8,7 @@ var usedLetters = [];
 var randomWord;
 var letters;
 var letterCounter = 0;
+var score = 0;
 function startGame(){
   // Chooses random word from wordbank array
   var word = [Math.floor(Math.random()*wordbank.length)];
