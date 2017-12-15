@@ -3,6 +3,10 @@
 body{
   background-color: #64ffda;
 }
+div{
+  margin:5%;
+  margin-left: 20%;
+}
 #chosenWord{
 color: #64ffda;
 text-shadow: 1px 1px black;
@@ -15,22 +19,21 @@ max-width: inherit;
 color: black;
 font-family: 'Josefin Sans', sans-serif;
 font-size: 100%;
-border: solid;
 margin-top: 100px;
 }
 /*Container*/
 .z-depth-4{
 background-color: #eceff1;
-margin-right: 10%;
 text-align: center;
 text-shadow: 1px 1px #78909c;
 margin-bottom: 20px;
-float: left;
 width: 100%;
 word-wrap: break-word;
+margin-top: 40%;
+margin-left: 54%;
 }
 /*Game Over Button*/
 #gameOver{
-  margin-right: 100px;
+  margin-right:39%;
 
 }

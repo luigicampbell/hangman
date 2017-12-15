@@ -54,6 +54,12 @@ function checkedLetters(){
        // alert("Already guessed this letter!");
 
      }
+     if (lives<1){
+       document.getElementById("gameOver");
+       function roundComplete(){
+         location.reload();
+     }
+   }
         if (letterCounter === 0){
           lives-=1;
           document.getElementById("chances").innerHTML=lives;
@@ -61,6 +67,7 @@ function checkedLetters(){
 
     }
   }
+
   //Clearing Arrays
   function clearArr() {
   	usedLetters=[];
@@ -78,14 +85,7 @@ function checkedLetters(){
   }
 
   // 3) roundComplete() function - Here we will have all of the code that needs to be run after each guess is made.
-  function roundComplete(){
-    if (lives<1){
-      document.getElementById("gameOver");
-      function gameOver(){
-        location.reload();
-    }
-  }
-  }
+  
   // 4) Call the startGame() function at the end to reset the game
   startGame();
   checkedLetters();
