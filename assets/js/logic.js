@@ -9,34 +9,34 @@ var usedLetters = [];
 var randomWord;
 var letters;
 var letterCounter = 0;
-// var keyCodes = {
-//   65: "a",
-//   66: "b",
-//   67: "c",
-//   68: "d",
-//   69: "e",
-//   70: "f",
-//   71: "g",
-//   72: "h",
-//   73: "i",
-//   74: "j",
-//   75: "k",
-//   76: "l",
-//   77: "m",
-//   78: "n",
-//   79: "o",
-//   80: "p",
-//   81: "q",
-//   82: "r",
-//   83: "s",
-//   84: "t",
-//   85: "u",
-//   86: "v",
-//   87: "w",
-//   88: "x",
-//   89: "y",
-//   90: "z"
-// }
+var keyCodes = {
+  65: "a",
+  66: "b",
+  67: "c",
+  68: "d",
+  69: "e",
+  70: "f",
+  71: "g",
+  72: "h",
+  73: "i",
+  74: "j",
+  75: "k",
+  76: "l",
+  77: "m",
+  78: "n",
+  79: "o",
+  80: "p",
+  81: "q",
+  82: "r",
+  83: "s",
+  84: "t",
+  85: "u",
+  86: "v",
+  87: "w",
+  88: "x",
+  89: "y",
+  90: "z"
+}
 
 function startGame(){
   // Chooses random word from wordbank array
@@ -61,8 +61,7 @@ function checkedLetters(){
     for(var l = 0; l <= usedLetters.length-1; l++)
  {
    //Winnie I couldn't figure out how to implement a check for the keycodes-I also tried a separate if check populating an array with keyCodes
-    if(usedLetters[l].indexOf(guess) != -1)
-    // ||(guess.keyCodes > 64 && guess.keyCodes < 91))
+    if(usedLetters[l].indexOf(guess) != -1 || (guess.keyCodes < 65 && guess.keyCodes > 91))
        {
         return false;
        }
@@ -102,11 +101,11 @@ function checkedLetters(){
       // button.addEventListener("click", makeVisible, false);
     }
     if (letterCounter === 0){
-      lives-=1;
+      lives -= 1;
       document.getElementById("chances").innerHTML=lives;
     }
     //ಥ﹏ಥ
-    if(guessLowercase === chosenWord){
+    if(makeWord === hiddenWord){
       var refreshButton = $("<button>");
       refreshButton.addClass("display");
       $("gameOver").append(refreshButton);
