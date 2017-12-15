@@ -105,7 +105,8 @@ function checkedLetters(){
       document.getElementById("chances").innerHTML=lives;
     }
     //ಥ﹏ಥ
-    if(makeWord === hiddenWord){
+    if(makeWord === chosenWord){
+      alert("You win!");
       var refreshButton = $("<button>");
       refreshButton.addClass("display");
       $("gameOver").append(refreshButton);
