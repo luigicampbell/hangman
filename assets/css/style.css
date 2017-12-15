@@ -38,7 +38,7 @@ border-radius: 5px 5px;
 }
 /*Game Over Button*/
 #gameOver{
-  visibility: hidden;
+  /*visibility: hidden;*/
 }
 .display {
   z-index: 99;

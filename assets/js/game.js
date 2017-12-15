@@ -109,6 +109,7 @@ function checkedLetters(){
     if(guessLowercase === chosenWord){
       var refreshButton = $("<button>");
       refreshButton.addClass("display");
+      $("gameOver").append(refreshButton);
       //banner below/above saying congratulating. Clone for lose
       document.getElementById("win").innerHTML="You Win, yesss!";
 
