@@ -1,3 +1,4 @@
+// Known Bugs: now for some reason, a random letter in the word becomes impossible to use, classes are not being added though I am using jQuery-sick of javascript-feeling like I try a million or so  work arounds rather than straight forward jQuery ಥ_ಥ
 // 1) startGame() function - how we will start and restart the game
 // $(document).ready(function() {
 // Variable declaration
@@ -8,7 +9,35 @@ var usedLetters = [];
 var randomWord;
 var letters;
 var letterCounter = 0;
-var score = 0;
+// var keyCodes = {
+//   65: "a",
+//   66: "b",
+//   67: "c",
+//   68: "d",
+//   69: "e",
+//   70: "f",
+//   71: "g",
+//   72: "h",
+//   73: "i",
+//   74: "j",
+//   75: "k",
+//   76: "l",
+//   77: "m",
+//   78: "n",
+//   79: "o",
+//   80: "p",
+//   81: "q",
+//   82: "r",
+//   83: "s",
+//   84: "t",
+//   85: "u",
+//   86: "v",
+//   87: "w",
+//   88: "x",
+//   89: "y",
+//   90: "z"
+// }
+
 function startGame(){
   // Chooses random word from wordbank array
   var word = [Math.floor(Math.random()*wordbank.length)];
@@ -31,7 +60,9 @@ function checkedLetters(){
     var guess = event.key;
     for(var l = 0; l <= usedLetters.length-1; l++)
  {
+   //Winnie I couldn't figure out how to implement a check for the keycodes-I also tried a separate if check populating an array with keyCodes
     if(usedLetters[l].indexOf(guess) != -1)
+    // ||(guess.keyCodes > 64 && guess.keyCodes < 91))
        {
         return false;
        }
@@ -58,45 +89,33 @@ function checkedLetters(){
         letterCounter+=1;
       }
     }
-    if (guessLowercase = usedLetters){
-      // alert("Already guessed this letter!");
-
-    }
     if (lives<1){
-      var target = document.getElementById("gameOver");
-      var button = document.getElementById("button");
+      // var target = document.getElementById("gameOver");
+      // var button = document.getElementById("button");
 
-      function makeVisible() {
-        var classContent = gameOver.className;
-        gameOver.className = classContent.replace("invisible", "").trim();
-      }
-      button.addEventListener("click", makeVisible, false);
+// 3) roundComplete() function - Here we will have all of the code that needs to be run after each guess is made.
+//doesn't work yet-look up ಠಿ_ಠ
+      // function makeVisible() {
+      //   var classContent = gameOver.className;
+      //   gameOver.className = classContent.replace("invisible", "").trim();
+      // }
+      // button.addEventListener("click", makeVisible, false);
     }
     if (letterCounter === 0){
       lives-=1;
       document.getElementById("chances").innerHTML=lives;
     }
+    //ಥ﹏ಥ
+    if(guessLowercase === chosenWord){
+      var refreshButton = $("<button>");
+      refreshButton.addClass("display");
+      //banner below/above saying congratulating. Clone for lose
+      document.getElementById("win").innerHTML="You Win, yesss!";
+
+    }
 
   }
 }
-
-//Clearing Arrays
-function clearArr() {
-  usedLetters=[];
-  guessesRemaining=12;
-  blankWord=[]
-  userGuess;
-  userGuessCaps;
-  previousIterationOfWord;
-  guessCounter=0;
-  wordLetter;
-  randomWord;
-  document.getElementById("currentWord").innerHTML="";
-  document.getElementById("dislayUsedLetters").innerHTML=usedLetters;
-
-}
-
-// 3) roundComplete() function - Here we will have all of the code that needs to be run after each guess is made.
 
 // 4) Call the startGame() function at the end to reset the game
 startGame();
