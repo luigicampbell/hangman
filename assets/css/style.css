@@ -8,32 +8,38 @@ div{
   margin-left: 20%;
 }
 #chosenWord{
-color: #64ffda;
-text-shadow: 1px 1px black;
-font-family: 'Josefin Sans', sans-serif;
+color: #eceff1;
+text-shadow: 1px 1px #78909c;
+font-family: 'Bungee', cursive;
 font-size: 100%;
 clear: both;
 max-width: inherit;
 }
 #typedLetters{
-color: black;
-font-family: 'Josefin Sans', sans-serif;
+color: #eceff1;
+text-shadow: 1px 1px #78909c;
+font-family: 'Bungee', cursive;
 font-size: 100%;
 margin-top: 100px;
 }
 /*Container*/
 .z-depth-4{
-background-color: #eceff1;
-text-align: center;
+color: #eceff1;
 text-shadow: 1px 1px #78909c;
+font-family: 'Bungee', cursive;
 margin-bottom: 20px;
 width: 100%;
 word-wrap: break-word;
 margin-top: 40%;
 margin-left: 54%;
+text-align: center;
+border-radius: 5px 5px;
+
 }
 /*Game Over Button*/
 #gameOver{
-  margin-right:39%;
-
+  margin-left: 41%;
+  margin-top: 15%;
+  /*visibility: hidden;*/
+  ;
 }

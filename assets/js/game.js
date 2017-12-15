@@ -56,9 +56,7 @@ function checkedLetters(){
      }
      if (lives<1){
        document.getElementById("gameOver");
-       function roundComplete(){
-         location.reload();
-     }
+
    }
         if (letterCounter === 0){
           lives-=1;
@@ -85,7 +83,9 @@ function checkedLetters(){
   }
 
   // 3) roundComplete() function - Here we will have all of the code that needs to be run after each guess is made.
-  
+  function roundComplete(){
+    location.reload();
+}
   // 4) Call the startGame() function at the end to reset the game
   startGame();
   checkedLetters();
