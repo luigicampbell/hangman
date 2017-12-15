@@ -38,13 +38,17 @@ border-radius: 5px 5px;
 }
 /*Game Over Button*/
 #gameOver{
-  /*visibility: hidden;*/
+  margin-top: 78px;
+  height: 50px;
+  width: 50px;
+  margin-left: 44%;
+  margin-bottom: 100px;
 }
 .display {
   z-index: 99;
-  font-size: 100%;
+  /*font-size: 100%;
   margin-left: 41%;
   margin-top: 15%;
   text-shadow: 1px 1px #78909c;
-  visibility: visible;
+  visibility: visible; */
 }
