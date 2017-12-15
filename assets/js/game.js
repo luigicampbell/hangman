@@ -28,6 +28,13 @@ function checkedLetters(){
   document.onkeyup = function (event){
     var makeWord;
     var guess = event.key;
+    for(var l = 0; l <= usedLetters.length-1; l++)
+ {
+    if(usedLetters[l].indexOf(guess) != -1)
+       {
+        return false;
+       }
+ }
     var guessLowercase = guess.toLowerCase();
     usedLetters.push(guessLowercase);
 
@@ -44,50 +51,54 @@ function checkedLetters(){
         var lastWord = hiddenWord.join("");
 
       }
-  }
-      for (var k = 0; k < randomWord.length; k++) {
-        if (guessLowercase == hiddenWord[k]){
-          letterCounter+=1;
-        }
+    }
+    for (var k = 0; k < randomWord.length; k++) {
+      if (guessLowercase == hiddenWord[k]){
+        letterCounter+=1;
       }
-      if (guessLowercase = usedLetters){
-       // alert("Already guessed this letter!");
-
-     }
-     if (lives<1){
-       document.getElementById("gameOver");
-
-   }
-        if (letterCounter === 0){
-          lives-=1;
-          document.getElementById("chances").innerHTML=lives;
-        }
+    }
+    if (guessLowercase = usedLetters){
+      // alert("Already guessed this letter!");
 
     }
+    if (lives<1){
+      var target = document.getElementById("gameOver");
+      var button = document.getElementById("button");
+
+      function makeVisible() {
+        var classContent = gameOver.className;
+        gameOver.className = classContent.replace("invisible", "").trim();
+      }
+      button.addEventListener("click", makeVisible, false);
+    }
+    if (letterCounter === 0){
+      lives-=1;
+      document.getElementById("chances").innerHTML=lives;
+    }
+
   }
-
-  //Clearing Arrays
-  function clearArr() {
-  	usedLetters=[];
-  	guessesRemaining=12;
-  	blankWord=[]
-  	userGuess;
-  	userGuessCaps;
-  	previousIterationOfWord;
-  	guessCounter=0;
-  	wordLetter;
-  	randomWord;
-  	document.getElementById("currentWord").innerHTML="";
-  	document.getElementById("dislayUsedLetters").innerHTML=usedLetters;
-
-  }
-
-  // 3) roundComplete() function - Here we will have all of the code that needs to be run after each guess is made.
-  function roundComplete(){
-    location.reload();
 }
-  // 4) Call the startGame() function at the end to reset the game
-  startGame();
-  checkedLetters();
-  //End of Document Ready Function
-  // });
+
+//Clearing Arrays
+function clearArr() {
+  usedLetters=[];
+  guessesRemaining=12;
+  blankWord=[]
+  userGuess;
+  userGuessCaps;
+  previousIterationOfWord;
+  guessCounter=0;
+  wordLetter;
+  randomWord;
+  document.getElementById("currentWord").innerHTML="";
+  document.getElementById("dislayUsedLetters").innerHTML=usedLetters;
+
+}
+
+// 3) roundComplete() function - Here we will have all of the code that needs to be run after each guess is made.
+
+// 4) Call the startGame() function at the end to reset the game
+startGame();
+checkedLetters();
+//End of Document Ready Function
+// });

@@ -38,8 +38,11 @@ border-radius: 5px 5px;
 }
 /*Game Over Button*/
 #gameOver{
+  font-size: 100%;
   margin-left: 41%;
   margin-top: 15%;
-  /*visibility: hidden;*/
-  ;
+  text-shadow: 1px 1px #78909c;
+}
+.invisible{
+  visibility: hidden;
 }
