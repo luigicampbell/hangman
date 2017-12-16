@@ -60,10 +60,10 @@ function checkedLetters(){
       if (guessLowercase == hiddenWord[k]){
         letterCounter+=1;
       }
-      if (letterCounter === 0){
-        lives -= 1;
-        document.getElementById("chances").innerHTML=lives;
-      }
+    }
+    if (letterCounter === 0){
+      lives -= 1;
+      document.getElementById("chances").innerHTML=lives;
     }
     //ಥ﹏ಥ
     if(makeWord === chosenWord){
