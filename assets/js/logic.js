@@ -76,16 +76,16 @@ function checkedLetters(){
 
     }
     if (lives<1){
-      // var target = document.getElementById("gameOver");
-      // var button = document.getElementById("button");
+      var target = document.getElementById("gameOver");
+      var button = document.getElementById("button");
 
       // 3) roundComplete() function - Here we will have all of the code that needs to be run after each guess is made.
-      //doesn't work yet-look up ಠಿ_ಠ
-      // function makeVisible() {
-      //   var classContent = gameOver.className;
-      //   gameOver.className = classContent.replace("invisible", "").trim();
-      // }
-      // button.addEventListener("click", makeVisible, false);
+      // doesn't work yet-look up ಠಿ_ಠ
+      function makeVisible() {
+        var classContent = target.className;
+        gameOver.className = classContent.replace("invisible", "").trim();
+      }
+      button.addEventListener("click", makeVisible, true);
     }
     //ಥ﹏ಥ
     if(makeWord === hiddenWord){
