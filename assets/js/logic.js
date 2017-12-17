@@ -7,7 +7,12 @@ var usedLetters = [];
 var randomWord;
 var lettersArr;
 var letterCounter = 0;
+
+//buttons for phone
+
 var alpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
+
+//start game function finds a word
 
 function startGame(){
   // Chooses random word from wordbank array
@@ -40,7 +45,7 @@ function checkedLetters(){
       return false;
     }
     usedLetters.push(guessLowercase);
-    document.getElementById("typedLetters").innerHTML = usedLetters;
+    document.getElementById("typedLetters").innerHTML = "You've tried: " + usedLetters.join(" ");
     document.getElementById("chances").innerHTML = lives;
 
 
@@ -56,16 +61,18 @@ function checkedLetters(){
 
     if (letterCounter === 0){
       lives -= 1;
-      document.getElementById("chances").innerHTML=lives;
+      document.getElementById("chances").innerHTML="lives: " + lives;
     }
-
+// 3) reload
     if(randomWord === hiddenWordArr.join("")){
-      alert("You win!");
       var refreshButton = $("<button>");
       refreshButton.addClass("display");
-      $("gameOver").append(refreshButton);
+      $("#gameOver").append(refreshButton);
       //banner below/above saying congratulating. Clone for lose
-      document.getElementById("win").innerHTML="You Win, yesss!";
+    }
+    //when div appears, if clicked restart game
+    document.getElementById("#gameOver").onClick = function(){
+      location.reload();
     }
   }
 }
