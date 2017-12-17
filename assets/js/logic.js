@@ -11,10 +11,13 @@ var letterCounter = 0;
 //start game function finds a word
 
 function startGame(){
-  //use a button to get phone keyboard
-  var textbox = document.getElementById('my-input');
-  textbox.select();
-
+//opens Keyboard mobile
+document.getElementById('openKeyboard').addEventListener('click', function(){
+    var inputElement = document.getElementById('hiddenInput');
+    inputElement.style.visibility = 'visible'; // unhide the input
+    inputElement.focus(); // focus on it so keyboard pops
+    inputElement.style.visibility = 'hidden'; // hide it again
+});
   // Chooses random word from wordbank array
   var word = [Math.floor(Math.random()*wordbank.length)];
   randomWord = wordbank[word];
@@ -44,7 +47,7 @@ function checkedLetters(){
       // display message to user that they've guessed this letter
       return false;
     }
-    if (lives>0){
+    if (lives > 0 ){
     usedLetters.push(guessLowercase);
     document.getElementById("typedLetters").innerHTML = "You've tried: " + usedLetters.join(" ");
     document.getElementById("chances").innerHTML = lives;
@@ -68,6 +71,7 @@ function checkedLetters(){
 
 // 3) reload
     if(randomWord === hiddenWordArr.join("")){
+      document.getElementById("typedLetters").innerHTML = "";
       var refreshButton = $("<button>");
       refreshButton.addClass("display");
       $("#gameOver").append(refreshButton);
