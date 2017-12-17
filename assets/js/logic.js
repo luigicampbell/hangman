@@ -8,20 +8,13 @@ var randomWord;
 var lettersArr;
 var letterCounter = 0;
 
-//buttons for phone
-
-var alpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
-
 //start game function finds a word
 
 function startGame(){
   //use a button to get phone keyboard
-  document.getElementById('openKeyboard').addEventListener('click', function(){
-    var inputElement = document.getElementById('hiddenInput');
-    inputElement.style.visibility = 'visible'; // unhide the input
-    inputElement.focus(); // focus on it so keyboard pops
-    // inputElement.style.visibility = 'hidden'; // hide it again
-});
+  var textbox = document.getElementById('my-input');
+  textbox.select();
+
   // Chooses random word from wordbank array
   var word = [Math.floor(Math.random()*wordbank.length)];
   randomWord = wordbank[word];
@@ -51,9 +44,11 @@ function checkedLetters(){
       // display message to user that they've guessed this letter
       return false;
     }
+    if (lives>0){
     usedLetters.push(guessLowercase);
     document.getElementById("typedLetters").innerHTML = "You've tried: " + usedLetters.join(" ");
     document.getElementById("chances").innerHTML = lives;
+  }
 
 
       //Loop for hiddenWordArr
@@ -63,13 +58,14 @@ function checkedLetters(){
         hiddenWordArr[j] = lettersArr[j];
       }
     }
-    console.log('this is hiddenWordArr:' + hiddenWordArr);
+
     document.getElementById("chosenWord").innerHTML = hiddenWordArr.join(" ");
 
-    if (letterCounter === 0){
+    if (letterCounter === 0 && lives > 0){
       lives -= 1;
       document.getElementById("chances").innerHTML="lives: " + lives;
     }
+
 // 3) reload
     if(randomWord === hiddenWordArr.join("")){
       var refreshButton = $("<button>");
